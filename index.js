@@ -1,21 +1,30 @@
-const port = process.env.PORT || 8080;
-const express = require('express');
-const app = express();
-const path = require('path');
-const exphdb = require('express-handlebars');
+const port = process.env.PORT || 8080
+const express = require('express')
+const handlebars = require('express-handlebars')
+const path = require('path')
 
-app.engine('handlebars', exphdb());
-app.set('view engine', 'handlebars');
-//app.set('views', path.join(__dirname, 'views'))
-app.set('views', './views')
-app.use(express.static("STATIC-SERVING/cards"))
+var app = express()
 
-app.get('/render', function (req, res) {
-    res.render('poker', { evaled_hand: 'FLUSH', c1: "KH", c2: "QH", c3: "TH", c4: "4H", c5: "2H" }, function (err, html) {
+app.engine('handlebars', handlebars())
+app.set('view engine', 'handlebars')
+app.set('views', path.join(__dirname, 'views'))
+app.use(express.static('node_modules/cardsJS/cards'))
+
+app.get('/', function (req, res) {
+    var hand = { 
+        evaled_hand: 'FLUSH',
+        c1: "KH",
+        c2: "QH",
+        c3: "TH",
+        c4: "4H",
+        c5: "2H"
+    }
+    res.render('poker', hand, function (err, html) {
+        if (err) console.error(err) // add proper express error handling
         res.send(html)
     })
 })
 
 app.listen(port, function() {
-    console.log(`http://localhost:${port}/render`)
+    console.log('app listen on port: ' + port)
 })
