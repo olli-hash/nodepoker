@@ -23,6 +23,12 @@ app.listen(port, func2)
     (ja)
 
     
+    
+            Contributors & Collaborators
+    
+    https://github.com/olli-hash/nodepoker/settings/collaboration
+    
+    Beide haben Push-Access…
 
 
 
