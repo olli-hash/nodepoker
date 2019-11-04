@@ -1,0 +1,24 @@
+{
+  "name": "nodepoker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olli-hash/nodepoker.git"
+  },
+  "author": "olli-hash",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olli-hash/nodepoker/issues"
+  },
+  "homepage": "https://github.com/olli-hash/nodepoker#readme",
+  "dependencies": {
+    "cardsJS": "^1.1.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0"
+  }
+}
