@@ -31,24 +31,38 @@ app.get('/', function (req, res) {
 })
 
 
-function situation_standard1_class(pressure_from_before, pressure_from_behind) {
-    
+function situation_preflop_class(core_parameters, pressure_from_before, pressure_from_behind) {
     this.phase = "preflop"
+    
+    this.pressure_from_before = pressure_from_before
+    this.pressure_from_behind = pressure_from_behind
+}
+
+function tournament_context_class(){
+    this.currency_display = "€"
+    this.real_money_game = false
+    this.real_money_buyin = 0
+}
+
+function core_parameters_class () {
     this.stack = 10000
     this.BB = 200
     this.stack_as_BB = this.stack / this.BB
-    this.currency = "€"
-    this.real_money = false
+    this.amount_to_call = 600
+    this.potsizes = [200]
+}
+
+function position_parameters_class(){
     this.table_size = 5
     this.position = 0                   // === Anzahl Spieler vor unserem Spieler
     this.players_before = this.position
     this.players_behind = this.table_size - this.position - 1
-    
-    this.pressure_from_before = pressure_from_before
-    
-    this.pressure_from_behind = pressure_from_behind
-    
 }
+
+
+
+
+
 
 function pressure_before_class(n) {     // n === Anzahl Spieler
     
@@ -57,13 +71,13 @@ function pressure_before_class(n) {     // n === Anzahl Spieler
         case 5 :
             this.raises = 1
             this.lasting_calls = 1
-            this.active_players = 2     // Spieler, die nach derzeitigem Stand "im Spiel" sind
+            this.competing_players_now = 2     // Spieler, die nach derzeitigem Stand "im Spiel" sind
             break
             
         default :
             this.raises = 0
             this.lasting_calls = n
-            this.active_players = n
+            this.competing_players_now = n
     }
     
 }
