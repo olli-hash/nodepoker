@@ -36,9 +36,9 @@ function situation_standard1_class(pressure_from_before, pressure_from_behind) {
     this.phase = "preflop"
     this.stack = 10000
     this.BB = 200
+    this.stack_as_BB = this.stack / this.BB
     this.currency = "€"
     this.real_money = false
-    this.rel_stack = this.stack / this.BB
     this.table_size = 5
     this.position = 0                   // === Anzahl Spieler vor unserem Spieler
     this.players_before = this.position
@@ -57,7 +57,7 @@ function pressure_before_class(n) {     // n === Anzahl Spieler
         case 5 :
             this.raises = 1
             this.lasting_calls = 1
-            this.active_players = 2
+            this.active_players = 2     // Spieler, die nach derzeitigem Stand "im Spiel" sind
             break
             
         default :
@@ -66,37 +66,20 @@ function pressure_before_class(n) {     // n === Anzahl Spieler
             this.active_players = n
     }
     
-    
-    
 }
 
 
-
-
-
-
-
-
-
-
-
+var situation = new situation_standard1_class()
 
 app.get("/pokerhand", function(req,res){
     
-    
-    
-    
-    
-    
     console.log(situation)
-    
     
     var a_hand = { left: "KC", right: "TC", situation: situation }
     
     res.render("pokerhand", a_hand)
     
 })
-
 
 
 
