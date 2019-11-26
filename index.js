@@ -12,9 +12,6 @@ app.use("/script", express.static('script'))
 app.use(express.static('node_modules/cardsJS/cards'))
 
 
-
-
-
 app.get('/', function (req, res) {
     var hand = { 
         evaled_hand: 'FLUSH',
@@ -29,6 +26,126 @@ app.get('/', function (req, res) {
         res.send(html)
     })
 })
+
+
+    //           ...........................................................................      game simulator
+
+function game_simulator_class(table_size, starting_stack, player_list){
+    
+                                         //  "starting_stack"  als Standard für neue Player
+    
+    this.quality_max = 10
+    this.second_index_max = 3         
+    // ===   from -3 to +3
+    
+    this.table_size = table_size || 5
+    this.starting_stack = starting_stack || 10000
+    
+    
+    this.player_list = []
+    for (var i = 0; i < table_size; i++){
+        this.player_list.push(new player_class(this.starting_stack))
+    }
+    
+    this.have_winner = false
+    
+    this.start_game_round = function(){
+        give_cards1()
+        betting1()
+        if (! this.have_winner)   {
+            give_cards2()
+            betting()
+            if (! this.have_winner)   {
+                give_cards3()
+                betting()
+                if (! this.have_winner)   {
+                    give_cards4()
+                    betting()
+                }
+            }
+        }
+    }
+    
+    function betting1(){
+        // "ask player", one after the other; set Blinds; start with "UTG"
+    }
+    
+    function betting(){
+        
+    }
+    
+    function give_cards1(){
+        
+    }
+    
+    function give_cards2(){
+        
+    }
+    
+    function give_cards3(){
+        
+    }
+    
+    function give_cards4(){
+        
+    }
+    
+    
+    
+    
+    
+    this.draw_quality = function draw_quality(){
+        
+        
+        var x = Math.floor(Math.random() * )
+        
+        
+    }
+    this.make_next_move = function(){
+        
+        
+        
+        
+    }
+}
+
+
+function player_class(stack){
+    
+    this.stack = stack
+    this.games = []
+    
+    this.hand = []
+    
+    
+    this.history = []
+    
+//     this.card_good_luck = []
+//     this.card_bad_luck = []
+    
+    this.game_observation = []
+    this.mood = function() {     return 1        }
+    this.mood2 = function() {     return { a : 3, b : 10 , ab_max : 10   }    }
+    
+                                                    // outer_situation : {                     }
+    this.decide = function(outer_situation){
+        
+        
+        
+        
+    }
+    
+    this.behaviour = new behaviour_class()
+    
+    
+}
+
+
+
+
+
+
+
 
 
 function situation_preflop1_class() {
