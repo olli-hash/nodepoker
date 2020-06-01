@@ -3,7 +3,7 @@ const express = require('express')
 const handlebars = require('express-handlebars')
 const path = require('path')
 
-const poker = require('pokerhand.js')
+//const poker = require('pokerhand.js')
 
 var app = express()
 
@@ -12,6 +12,25 @@ app.set('view engine', 'handlebars')
 app.set('views', path.join(__dirname, 'views'))
 app.use("/script", express.static('script'))
 app.use(express.static('node_modules/cardsJS/cards'))
+
+
+function express_number_class (a,b) {
+	
+	this.base = b
+	this.counter = a
+	
+	this.value = a / b
+}
+
+
+
+
+
+
+
+
+
+
 
 
 app.get('/', function (req, res) {
@@ -28,6 +47,22 @@ app.get('/', function (req, res) {
         res.send(html)
     })
 })
+
+
+app.get('/deal_hand', function (req, res) {
+    var hand = { 
+        situation_name: 'dealed hand',
+        left:    ,
+		right:   ,
+		handfamily: 
+    }
+    res.render('poker', deal_hand, function (err, html) {
+        if (err) console.error(err) // add proper express error handling
+        res.send(html)
+    })
+})
+
+
 
 
 var situation = {  hi: "hi"   }
