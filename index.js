@@ -5,6 +5,10 @@ const path = require('path')
 
 //const poker = require('pokerhand.js')
 
+const pokerjs = require("pokerjs.js")
+
+
+
 var app = express()
 
 app.engine('handlebars', handlebars())
@@ -14,27 +18,11 @@ app.use("/script", express.static('script'))
 app.use(express.static('node_modules/cardsJS/cards'))
 
 
-function express_number_class (a,b) {
-	
-	this.base = b
-	this.counter = a
-	
-	this.value = a / b
-}
-
-
-
-
-
-
-
-
-
 
 
 
 app.get('/', function (req, res) {
-    var hand = { 
+    var five_card_hand = { 
         evaled_hand: 'FLUSH',
         c1: "KH",
         c2: "QH",
@@ -42,7 +30,7 @@ app.get('/', function (req, res) {
         c4: "4H",
         c5: "2H"
     }
-    res.render('poker', hand, function (err, html) {
+    res.render('poker', five_card_hand, function (err, html) {
         if (err) console.error(err) // add proper express error handling
         res.send(html)
     })
@@ -50,11 +38,15 @@ app.get('/', function (req, res) {
 
 
 app.get('/deal_hand', function (req, res) {
-    var hand = { 
+	var left = pokerjs.give_card()
+	var right = pokerjs.give_card()
+	var handfamily = pokerjs.eval_family(left, right)
+    var deal_hand = { 
         situation_name: 'dealed hand',
-        left:    ,
-		right:   ,
-		handfamily: 
+        left: left  ,
+		right: right ,
+		handfamily: handfamily ,
+		number_of_players: 2
     }
     res.render('poker', deal_hand, function (err, html) {
         if (err) console.error(err) // add proper express error handling
