@@ -72,12 +72,12 @@ app.get('/reset_cardstack', function (req, res) {
 var situation = {  hi: "hi"   }
 
 app.get("/pokerhand", function(req,res){
-    console.log(situation)
+    // console.log(situation)
     var a_hand = { left: "KC", right: "TC", situation: situation }
     res.render("pokerhand", a_hand)
 })
 
-
+console.log(app.routes)
 
 
 app.listen(port, function() {

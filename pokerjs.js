@@ -13,8 +13,9 @@
 	Nur, was nach exports geschoben (angehängt) wird, ist für das Mutter-Skript sichtbar und verwendbar.
 */
 
-
+// ++++++++++++++++++++++++++++++++++++++++++++++++
 exports.express_number_class = express_number_class
+// ++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 function express_number_class (a,b) {
@@ -24,7 +25,7 @@ function express_number_class (a,b) {
 	this.value = a / b
 }
 
-express_number_class.prototype.change (a,b) {
+express_number_class.prototype.change = function (a,b) {
 	
 	//express_number_class.prototype.constructor(a,b)    ??
 	
@@ -34,6 +35,41 @@ express_number_class.prototype.change (a,b) {
 
 
 // -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- 
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+exports.give_card = give_card
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+
+function give_card() {
+	
+	
+	
+	
+}
+
+
+
+// -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- 
+
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+exports.eval_family = eval_family
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+
+function eval_family() {
+	
+	
+	
+	
+}
+
+
+
+
+// -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- 
+
 
 
 function cardstack_class() {
