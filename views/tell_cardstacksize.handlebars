@@ -1,0 +1,36 @@
+<h3>{{situation_name}}</h3>    <!-- z.B. "preflop, frühe Position"             -->    
+<div id="pokerhand">
+    <img src="{{left}}.svg">
+    <img src="{{right}}.svg">
+    <!--<br>-->
+    {{handfamily}}
+</div>
+<br style="clear:both;">
+<div id="input_bets_and_ranges">
+
+
+
+	<form id="" class="userbet">
+	
+	<div class="">An einem {{number_of_players}}er-Tisch
+	</div>
+	
+		<label for="minbet">min bet:</label> <input type="number" name="minbet" id="minbet" min="0"><br>
+		<label for="maxbet">max bet:</label> <input type="number" name="maxbet"><br>
+		<label for="standardbet">standard bet:</label> <input type="number" name="standardbet"><br>
+		
+		<label>all-in:</label> <input type="number" name="allin_potential"><br>
+		<button id="ajax_pokerhand">Send!</button>
+	</form>
+	
+	
+	
+</div>
+
+
+
+<!--
+<input type="number" name="points" min="0" max="100" step="10" value="30">
+-->
+
+
