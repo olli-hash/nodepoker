@@ -11,10 +11,36 @@
 
 /*
 	Nur, was nach exports geschoben (angehängt) wird, ist für das Mutter-Skript sichtbar und verwendbar.
+	
+	exports.
+	module.exports.
+	
+	Gibt es modulbezogene, private Variablen, die von den exportierten Objekten genutzt werden können?
+	
+	
+	
+	?: Welche Welt will ich anbieten?
+	
+	- eine Sammlung nützlicher Funktionen, Variablen und Objekte
+	- nur Objekte
+	
+	??: Wie hängen diese exportierten Daten/Funktionen/Objekte zusammen?
+	
+	
+	
+	
 */
 
+
+
+
+
+
+
+
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++
-exports.express_number_class = express_number_class
+											exports.express_number_class = express_number_class
 // ++++++++++++++++++++++++++++++++++++++++++++++++
 
 
