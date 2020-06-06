@@ -38,6 +38,20 @@ express_number_class.prototype.change = function (a,b) {
 
 
 // ++++++++++++++++++++++++++++++++++++++++++++++++
+exports.give_card_from_cardstack = give_card_from_cardstack
+// ++++++++++++++++++++++++++++++++++++++++++++++++
+
+function give_card_from_cardstack(cardstack) {
+	
+	
+	return [cardstack].give_card()
+	
+}
+
+// -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- 
+
+
+// ++++++++++++++++++++++++++++++++++++++++++++++++
 exports.give_card = give_card
 // ++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -95,24 +109,6 @@ cardstack_class.prototype.give_card = function () {
 
 
 
-function give_card_from_cardstack() {
-	
-	
-	
-	
-	
-	
-	
-	
-}
-
-
-function give_card() {
-	
-	
-}
-
- 
 
 module.exports.getUser = () => {
     // Code here
