@@ -2,10 +2,7 @@ const port = 8080
 const express = require('express')
 const handlebars = require('express-handlebars')
 const path = require('path')
-
 const pokerjs = require("./pokerjs.js")
-
-
 
 var app = express()
 
@@ -27,6 +24,40 @@ app.get('/', function (req, res) {
         c5: "2H"
     }
     res.render('poker', five_cards_hand, function (err, html) {
+        if (err) console.error(err) // add proper express error handling
+        res.send(html)
+    })
+})
+
+// -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- 
+
+app.get('/showcards', function (req, res) {
+    
+	var whole_deck = (function () {
+		
+		var scores = [ "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"]
+		var suits = [ "D", "H", "S", "C" ]
+
+		var cards = []
+		
+		var i , j 
+		
+		for (i = 0 ; i < suits.length ; i++) {
+			
+			for (j = 0 ; j < scores.length ; j++) {
+			
+				cards.push(scores[j] + suits[i])
+			}
+		}
+		
+		console.log(cards)
+		console.log("--------")
+		
+		return { cards: cards  }
+		
+	})()
+	
+    res.render('showcards', whole_deck, function (err, html) {
         if (err) console.error(err) // add proper express error handling
         res.send(html)
     })

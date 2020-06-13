@@ -44,6 +44,18 @@
 
 
 
+
+
+
+
+
+
+
+
+
+// -------- -------- -------- -------- -------- -------- -------- -------- -------- -------- 
+
+
 // ++++++++++++++++++++++++++++++++++++++++++++++++
 											exports.game_class = game_class
 // ++++++++++++++++++++++++++++++++++++++++++++++++
@@ -55,7 +67,7 @@ function game_class (users) {
 	
 }
 
-game_class.prototype.add_user (u) {
+game_class.prototype.add_user = function (u) {
 	
 	this.users.push(u)
 	
