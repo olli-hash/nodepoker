@@ -34,24 +34,16 @@ app.get('/', function (req, res) {
 app.get('/showcards', function (req, res) {
 
 	var whole_deck = (function () {
-
 		var scores = [ "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K", "A"]
 		var suits = [ "D", "H", "S", "C" ]
-
 		var cards = []
-
 		var i , j
-
 		for (i = 0 ; i < suits.length ; i++) {
-
 			for (j = 0 ; j < scores.length ; j++) {
-
 				cards.push(scores[j] + suits[i])
 			}
 		}
-
 		return { cards: cards  }
-
 	})()
 
     res.render('showcards', whole_deck, function (err, html) {
@@ -114,6 +106,7 @@ console.log(app.routes)
 app.listen(port, function() {
     console.log('http://localhost:' + port)
 
+	console.log(`http://localhost:${port}/showcards        `)
 	console.log(`http://localhost:${port}/reset_cardstack         `)
     console.log(`http://localhost:${port}/tell_cardstacksize         `)
     console.log(`http://localhost:${port}/deal_hand         `)
